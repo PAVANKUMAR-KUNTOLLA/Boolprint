@@ -1,12 +1,12 @@
-# Boolprint API - Django Application
+ Boolprint API - Django Application
 
-## Overview
+ Overview
 
 The Boolprint API provides endpoints for user authentication and item management. The API allows users to sign up, log in, manage their profile, and perform CRUD operations on items.
 
-## Endpoints
+ Endpoints
 
-### 1. Signup Endpoint
+ 1. Signup Endpoint
 
 - **Method**: `POST`
 - **Path**: `/base/users/signup/`
@@ -24,7 +24,7 @@ The Boolprint API provides endpoints for user authentication and item management
 
 ---
 
-### 2. Login Endpoint
+ 2. Login Endpoint
 
 - **Method**: `POST`
 - **Path**: `/base/users/login/`
@@ -41,7 +41,7 @@ The Boolprint API provides endpoints for user authentication and item management
 
 ---
 
-### 3. Profile Endpoint
+ 3. Profile Endpoint
 
 - **Method**: `GET`
 - **Path**: `/base/users/profile/`
@@ -58,7 +58,7 @@ The Boolprint API provides endpoints for user authentication and item management
 
 ---
 
-### 4. Logout Endpoint
+ 4. Logout Endpoint
 
 - **Method**: `POST`
 - **Path**: `/base/users/logout/`
@@ -76,9 +76,9 @@ The Boolprint API provides endpoints for user authentication and item management
 
 ---
 
-## Item Management Endpoints
+ Item Management Endpoints
 
-### 5. Create Item Endpoint
+ 5. Create Item Endpoint
 
 - **Method**: `POST`
 - **Path**: `/items/`
@@ -95,7 +95,7 @@ The Boolprint API provides endpoints for user authentication and item management
 
 ---
 
-### 6. Read Item Endpoint
+ 6. Read Item Endpoint
 
 - **Method**: `GET`
 - **Path**: `/items/{item_id}/`
@@ -109,7 +109,7 @@ The Boolprint API provides endpoints for user authentication and item management
 
 ---
 
-### 7. Update Item Endpoint
+ 7. Update Item Endpoint
 
 - **Method**: `PUT`
 - **Path**: `/items/{item_id}/`
@@ -126,7 +126,7 @@ The Boolprint API provides endpoints for user authentication and item management
 
 ---
 
-### 8. Delete Item Endpoint
+ 8. Delete Item Endpoint
 
 - **Method**: `DELETE`
 - **Path**: `/items/{item_id}/`
@@ -140,6 +140,6 @@ The Boolprint API provides endpoints for user authentication and item management
 
 ---
 
-## Authentication & Security
+ Authentication & Security
 
 All secured endpoints (like Profile, Create, Update, and Delete Item) require a valid `Authorization` header with a Bearer token, which is obtained via the login endpoint.
