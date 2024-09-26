@@ -16,7 +16,7 @@ The Boolprint API provides endpoints for user authentication and item management
 `{ "username": "test_user", "password": "secure_password", "email": "user@example.com" }`
 
 **Response**:
-`{ "id": 1, "username": "test_user", "email": "user@example.com", "token": "eyJhbGciOiJIUzI1Ni..." }`
+`{ "id": 1, "username": "test_user", "email": "user@example.com" }`
 
 **Error Codes**:
 - `400`: Invalid input (e.g., missing or invalid fields)
