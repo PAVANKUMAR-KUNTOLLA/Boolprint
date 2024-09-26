@@ -8,202 +8,137 @@ The Boolprint API provides endpoints for user authentication and item management
 
 ### 1. Signup Endpoint
 
-- **Method**: POST
+- **Method**: `POST`
 - **Path**: `/base/users/signup/`
 - **Description**: This endpoint allows new users to create an account.
 
-#### Request Body:
+**Request Body**:
+`{ "username": "test_user", "password": "secure_password", "email": "user@example.com" }`
 
-```json
-{
-  "username": "test_user",
-  "password": "secure_password",
-  "email": "user@example.com"
-}
-```
+**Response**:
+`{ "id": 1, "username": "test_user", "email": "user@example.com", "token": "eyJhbGciOiJIUzI1Ni..." }`
 
-#### Response:
+**Error Codes**:
+- `400`: Invalid input (e.g., missing or invalid fields)
+- `409`: User already exists
 
-```json
-{
-  "id": 1,
-  "username": "test_user",
-  "email": "user@example.com",
-  "token": "eyJhbGciOiJIUzI1Ni..."
-}
-```
-
-#### Error Codes:
-- 400: Invalid input (e.g., missing or invalid fields)
-- 409: User already exists
+---
 
 ### 2. Login Endpoint
 
-- **Method**: POST
+- **Method**: `POST`
 - **Path**: `/base/users/login/`
 - **Description**: Authenticates a user and returns an access token.
 
-#### Request Body:
+**Request Body**:
+`{ "username": "test_user", "password": "secure_password" }`
 
-```json
-{
-  "username": "test_user",
-  "password": "secure_password"
-}
-```
+**Response**:
+`{ "access_token": "eyJhbGciOiJIUzI1NiIs...", "refresh_token": "eyJhbGciOiJIUzI1NiIs..." }`
 
-#### Response:
+**Error Codes**:
+- `401`: Invalid credentials
 
-```json
-{
-  "access_token": "eyJhbGciOiJIUzI1NiIs...",
-  "refresh_token": "eyJhbGciOiJIUzI1NiIs..."
-}
-```
-
-#### Error Codes:
-- 401: Invalid credentials
+---
 
 ### 3. Profile Endpoint
 
-- **Method**: GET
+- **Method**: `GET`
 - **Path**: `/base/users/profile/`
 - **Description**: Fetches the profile of the authenticated user.
-- **Headers**: 
-  - `Authorization: Bearer <access_token>`
 
-#### Response:
+**Headers**:
+- `Authorization: Bearer <access_token>`
 
-```json
-{
-  "id": 1,
-  "username": "test_user",
-  "email": "user@example.com"
-}
-```
+**Response**:
+`{ "id": 1, "username": "test_user", "email": "user@example.com" }`
 
-#### Error Codes:
-- 401: Unauthorized
+**Error Codes**:
+- `401`: Unauthorized
+
+---
 
 ### 4. Logout Endpoint
 
-- **Method**: POST
+- **Method**: `POST`
 - **Path**: `/base/users/logout/`
 - **Description**: Logs the user out by invalidating the access and refresh tokens.
 
-#### Request Body:
+**Request Body**:
+`{ "refresh_token": "eyJhbGciOiJIUzI1NiIs..." }`
 
-```json
-{
-  "refresh_token": "eyJhbGciOiJIUzI1NiIs..."
-}
-```
+**Response**:
+`{ "message": "Successfully logged out" }`
 
-#### Response:
+**Error Codes**:
+- `400`: Invalid refresh token
+- `401`: Unauthorized
 
-```json
-{
-  "message": "Successfully logged out"
-}
-```
-
-#### Error Codes:
-- 400: Invalid refresh token
-- 401: Unauthorized
+---
 
 ## Item Management Endpoints
 
 ### 5. Create Item Endpoint
 
-- **Method**: POST
+- **Method**: `POST`
 - **Path**: `/items/`
 - **Description**: Creates a new item.
 
-#### Request Body:
+**Request Body**:
+`{ "name": "Item Name", "description": "Item description" }`
 
-```json
-{
-  "name": "Item Name",
-  "description": "Item description"
-}
-```
+**Response**:
+`{ "id": 1, "name": "Item Name", "description": "Item description" }`
 
-#### Response:
+**Error Codes**:
+- `400`: Item already exists
 
-```json
-{
-  "id": 1,
-  "name": "Item Name",
-  "description": "Item description"
-}
-```
-
-#### Error Codes:
-- 400: Item already exists
+---
 
 ### 6. Read Item Endpoint
 
-- **Method**: GET
+- **Method**: `GET`
 - **Path**: `/items/{item_id}/`
 - **Description**: Retrieves details of a specific item by its ID.
 
-#### Response:
+**Response**:
+`{ "id": 1, "name": "Item Name", "description": "Item description" }`
 
-```json
-{
-  "id": 1,
-  "name": "Item Name",
-  "description": "Item description"
-}
-```
+**Error Codes**:
+- `404`: Item not found
 
-#### Error Codes:
-- 404: Item not found
+---
 
 ### 7. Update Item Endpoint
 
-- **Method**: PUT
+- **Method**: `PUT`
 - **Path**: `/items/{item_id}/`
 - **Description**: Updates the details of a specific item.
 
-#### Request Body:
+**Request Body**:
+`{ "name": "Updated Item Name", "description": "Updated item description" }`
 
-```json
-{
-  "name": "Updated Item Name",
-  "description": "Updated item description"
-}
-```
+**Response**:
+`{ "id": 1, "name": "Updated Item Name", "description": "Updated item description" }`
 
-#### Response:
+**Error Codes**:
+- `404`: Item not found
 
-```json
-{
-  "id": 1,
-  "name": "Updated Item Name",
-  "description": "Updated item description"
-}
-```
-
-#### Error Codes:
-- 404: Item not found
+---
 
 ### 8. Delete Item Endpoint
 
-- **Method**: DELETE
+- **Method**: `DELETE`
 - **Path**: `/items/{item_id}/`
 - **Description**: Deletes a specific item by its ID.
 
-#### Response:
+**Response**:
+`{ "message": "Item deleted successfully" }`
 
-```json
-{
-  "message": "Item deleted successfully"
-}
-```
+**Error Codes**:
+- `404`: Item not found
 
-#### Error Codes:
-- 404: Item not found
+---
 
 ## Authentication & Security
 
