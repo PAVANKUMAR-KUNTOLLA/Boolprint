@@ -1,0 +1,16 @@
+asgiref==3.8.1
+async-timeout==4.0.3
+Django==4.2.3
+django-cors-headers==4.1.0
+django-crum==0.7.9
+django-extensions==3.2.3
+django-redis==5.4.0
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.1
+PyJWT==2.9.0
+python-decouple==3.8
+pytz==2024.2
+redis==5.0.8
+sqlparse==0.5.1
+typing_extensions==4.12.2
+tzdata==2024.1
